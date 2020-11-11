@@ -37,11 +37,10 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip wheel
-        pip install -e .[test,ci]
-        pip install codecov
-    - name: Test with nose
+        pip install tox coverage
+    - name: Test with tox
       run: |
-        nosetests -sx .
+        tox -e py
     - name: Installable
       run: |
         pip install .

@@ -18,6 +18,7 @@ jobs:
         shell: bash
     env:
       TZ: CI
+      LC_ALL: C.UTF-8
     strategy:
       fail-fast: false
       matrix:
@@ -31,6 +32,7 @@ jobs:
       run: |
         git config --global core.autocrlf false
         git config --global core.eol lf
+        git config --global i18n.logOutputEncoding utf-8
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
